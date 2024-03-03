@@ -1,49 +1,3 @@
-// const hamburger = document.querySelector("#toggle-btn");
-
-// hamburger.addEventListener("click", function (){
-//     document.querySelector("#sidebar").classList.toggle("expand");
-// });
-
-const sidebar = document.querySelector('#sidebar');
-
-sidebar.addEventListener('mouseover', function() {
-    sidebar.classList.add('expand');
-});
-
-sidebar.addEventListener('mouseout', function() {
-    sidebar.classList.remove('expand');
-});
-
-
-$(function() {
-    $('.sidebar-link').click(function(e) {
-        e.preventDefault();
-		
-		// $('#timeline').show();
-		$('#media').show();
-		$('#calendar').hide();
-		$('.new-button').show();
-		$('.navbar').show()
-		$('#text-editor').hide();
-
-    });
-});
-
-// text-editor
-
-// $(function() {
-//     $('.new-button').click(function() {
-// 		e.preventDefault();
-//         $('.text-editor').show();
-//         $('#timeline').hide();
-// 		$('#media').hide();
-// 		$('#calendar').hide();
-//         $('.navbar').hide();
-//         $('.new-button').hide();
-
-//     });
-// });
-
 function formatDoc(cmd, value=null) {
 	if(value) {
 		document.execCommand(cmd, false, value);
@@ -51,6 +5,8 @@ function formatDoc(cmd, value=null) {
 		document.execCommand(cmd);
 	}
 }
+
+
 
 function addLink() {
 	const url = prompt('Insert url');
@@ -110,3 +66,8 @@ function fileHandle(value) {
 		html2pdf(content).save(filename.value);
 	}
 }
+
+$('.dropdown-item').click(function(){
+    var selectedOption = $(this).text();
+    $('#selectedOption').text('Selected option: ' + selectedOption);
+});

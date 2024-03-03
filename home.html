@@ -16,7 +16,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     
 
 </head>
@@ -32,7 +33,7 @@
             </div>
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
+                    <a href="#" class="sidebar-link ">
                         <img src="images/home-img/light/timeline.svg" width="16" height="16">
                         <span>Timeline</span>
                     </a>
@@ -89,7 +90,7 @@
                     </div>
                 </form>
             </nav>
-            <main class="content px-3 py-4">
+            <main class="content px-3 py-4 timeline">
                 <div class="container-fluid">
                     <div class="mb-3">
                         <h3 >Entries</h3>
@@ -98,7 +99,7 @@
                                 <div class="card border-0`">
                                     <div class="card-body py-4">
                                         <h5 class="mb-2">
-                                            February 17, 2024
+                                            February 22, 2024
                                         </h5>
                                         <p class="mb-2">
                                           Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, nulla sit. Reiciendis iure ea assumenda corrupti ducimus velit nam amet doloremque aspernatur, quae iste deserunt dignissimos voluptate, obcaecati facilis voluptatibus.
@@ -110,7 +111,7 @@
                               <div class="card border-0`">
                                   <div class="card-body py-4">
                                       <h5 class="mb-2">
-                                          February 18, 2024
+                                          February 21, 2024
                                       </h5>
                                       <p class="mb-2">
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, nulla sit. Reiciendis iure ea assumenda corrupti ducimus velit nam amet doloremque aspernatur, quae iste deserunt dignissimos voluptate, obcaecati facilis voluptatibus.
@@ -122,7 +123,7 @@
                             <div class="card border-0`">
                                 <div class="card-body py-4">
                                     <h5 class="mb-2">
-                                        February 17, 2024
+                                        February 20, 2024
                                     </h5>
                                     <p class="mb-2">
                                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, nulla sit. Reiciendis iure ea assumenda corrupti ducimus velit nam amet doloremque aspernatur, quae iste deserunt dignissimos voluptate, obcaecati facilis voluptatibus.
@@ -134,7 +135,7 @@
                           <div class="card border-0`">
                               <div class="card-body py-4">
                                   <h5 class="mb-2">
-                                      February 17, 2024
+                                      February 19, 2024
                                   </h5>
                                   <p class="mb-2">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, nulla sit. Reiciendis iure ea assumenda corrupti ducimus velit nam amet doloremque aspernatur, quae iste deserunt dignissimos voluptate, obcaecati facilis voluptatibus.
@@ -146,7 +147,7 @@
                         <div class="card border-0`">
                             <div class="card-body py-4">
                                 <h5 class="mb-2">
-                                    February 17, 2024
+                                    February 18, 2024
                                 </h5>
                                 <p class="mb-2">
                                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore, nulla sit. Reiciendis iure ea assumenda corrupti ducimus velit nam amet doloremque aspernatur, quae iste deserunt dignissimos voluptate, obcaecati facilis voluptatibus.
@@ -205,6 +206,68 @@
                     </div>
                 </div>
             </main>
+            <section id="text-editor">
+                <div class="container">
+                    <div class="toolbar">
+                        <div class="head">
+                            <input type="text" placeholder="Filename" value="untitled" id="filename">
+                            <select onchange="fileHandle(this.value); this.selectedIndex=0">
+                                <option value="" selected="" hidden="" disabled="">File</option>
+                                <option value="new">New file</option>
+                                <option value="txt">Save as txt</option>
+                                <option value="pdf">Save as pdf</option>
+                            </select>
+                            <select onchange="formatDoc('formatBlock', this.value); this.selectedIndex=0;">
+                                <option value="" selected="" hidden="" disabled="">Format</option>
+                                <option value="h1">Heading 1</option>
+                                <option value="h2">Heading 2</option>
+                                <option value="h3">Heading 3</option>
+                                <option value="h4">Heading 4</option>
+                                <option value="h5">Heading 5</option>
+                                <option value="h6">Heading 6</option>
+                                <option value="p">Paragraph</option>
+                            </select>
+                            <select onchange="formatDoc('fontSize', this.value); this.selectedIndex=0;">
+                                <option value="" selected="" hidden="" disabled="">Font size</option>
+                                <option value="1">Extra small</option>
+                                <option value="2">Small</option>
+                                <option value="3">Regular</option>
+                                <option value="4">Medium</option>
+                                <option value="5">Large</option>
+                                <option value="6">Extra Large</option>
+                                <option value="7">Big</option>
+                            </select>
+                            <div class="color">
+                                <span>Color</span>
+                                <input type="color" oninput="formatDoc('foreColor', this.value); this.value='#000000';">
+                            </div>
+                            <div class="color">
+                                <span>Background</span>
+                                <input type="color" oninput="formatDoc('hiliteColor', this.value); this.value='#000000';">
+                            </div>
+                        </div>
+                        <div class="btn-toolbar">
+                            <button onclick="formatDoc('undo')"><i class='bx bx-undo' ></i></button>
+                            <button onclick="formatDoc('redo')"><i class='bx bx-redo' ></i></button>
+                            <button onclick="formatDoc('bold')"><i class='bx bx-bold'></i></button>
+                            <button onclick="formatDoc('underline')"><i class='bx bx-underline' ></i></button>
+                            <button onclick="formatDoc('italic')"><i class='bx bx-italic' ></i></button>
+                            <button onclick="formatDoc('strikeThrough')"><i class='bx bx-strikethrough' ></i></button>
+                            <button onclick="formatDoc('justifyLeft')"><i class='bx bx-align-left' ></i></button>
+                            <button onclick="formatDoc('justifyCenter')"><i class='bx bx-align-middle' ></i></button>
+                            <button onclick="formatDoc('justifyRight')"><i class='bx bx-align-right' ></i></button>
+                            <button onclick="formatDoc('justifyFull')"><i class='bx bx-align-justify' ></i></button>
+                            <button onclick="formatDoc('insertOrderedList')"><i class='bx bx-list-ol' ></i></button>
+                            <button onclick="formatDoc('insertUnorderedList')"><i class='bx bx-list-ul' ></i></button>
+                            <button onclick="addLink()"><i class='bx bx-link' ></i></button>
+                            <button onclick="formatDoc('unlink')"><i class='bx bx-unlink' ></i></button>
+                            <button id="show-code" data-active="false">&lt;/&gt;</button>
+                        </div>
+                    </div>
+                    <div id="content" contenteditable="true" spellcheck="false">
+                        Lorem, ipsum.
+                    </div>
+            </section>
             <footer class="footer">
                 <div class="container-fluid">
                     <div class="row text-body-secondary">
@@ -228,13 +291,18 @@
                         </div>
                     </div>
                 </div>
-                
-                <button type="button" class="btn btn-dark btn-md rounded-5 new-button"><i class="lni lni-circle-plus"></i> New</button>
+            </footer>
+            
+            <button type="button" class="btn btn-dark btn-md rounded-5 new-button"><i class="lni lni-circle-plus"></i> New</button>
+                    
+    
         </div>
         
     </div>
-
     
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="home.js"></script>
 </body>
