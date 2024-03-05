@@ -125,12 +125,14 @@ a {
 #content {
 	padding: 16px;
 	outline: none;
-	height: 71vh;
+	height: 500vh;
 	/* width: 1000px; */
 	overflow: auto;
     background-color: #252525;
 }
-
+.content{
+    height: 200vh;
+}
 
 
 

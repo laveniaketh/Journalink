@@ -112,57 +112,26 @@ scontent.addEventListener('keydown', function (event) {
 
 
 
+$('.save-button').click(function(e) {
+    e.preventDefault(); // Prevent the default action of the link
 
-// $('.save-button').click(function(e) {
+    var content = document.querySelector('#content').innerHTML;
+	var dateInputValue = document.querySelector('#dateInput').value;
+	var date = new Date(dateInputValue);
+	date.setMinutes(date.getMinutes() - date.getTimezoneOffset()); // Adjust for time zone difference
+	var sqlDate = date.toISOString().split('T')[0];
 
-//     var content = document.querySelector('#content').innerHTML;
-// 	var dateInputValue = document.querySelector('#dateInput').value;
-// 	var date = new Date(dateInputValue);
-// 	date.setMinutes(date.getMinutes() - date.getTimezoneOffset()); // Adjust for time zone difference
-// 	var sqlDate = date.toISOString().split('T')[0];
-
-//     $.ajax({
-//         url: 'store_html.php',
-//         method: 'POST',
-
-//         data: { content: content,
-// 				date: sqlDate // Send the date in SQL format
-// 		},
-//         });
-// });
-
-// $('.save-button').click(function(e) {
-//     var content = document.querySelector('#content').innerHTML;
-//     var dateInputValue = document.querySelector('#dateInput').value;
-//     var date = new Date(dateInputValue);
-//     date.setMinutes(date.getMinutes() - date.getTimezoneOffset()); // Adjust for time zone difference
-//     var sqlDate = date.toISOString().split('T')[0];
-
-//     $.ajax({
-//         url: 'store_html.php',
-//         method: 'POST',
-//         data: {
-//             content: content,
-//             date: sqlDate // Send the date in SQL format
-//         },
-//         success: function(response) {
-//             // Check if the response is successful (you might need to adjust this based on your actual response format)
-//             if (response.success) {
-//                 // Redirect to home.php
-//                 window.location.href = 'home.php?save=true';
-//             } else {
-//                 // Handle unsuccessful response if needed
-//                 console.error("Failed to store HTML: " + response.error);
-//             }
-//         },
-//         error: function(xhr, status, error) {
-//             console.error("AJAX Error: " + error);
-//             // Optionally handle the error (e.g., display a message to the user)
-//         }
-//     });
-// });
-
-
+    $.ajax({
+        url: 'store_html.php',
+        method: 'POST',
+        data: { content: content,
+				date: sqlDate // Send the date in SQL format
+		},
+        success: function(response) {
+            console.log(response);
+        }
+    });
+});
 
 
 

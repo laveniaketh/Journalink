@@ -110,3 +110,9 @@ function fileHandle(value) {
 		html2pdf(content).save(filename.value);
 	}
 }
+
+function toggleDropdown() {
+	document.getElementById("dropdown-content").style.display = 
+	  document.getElementById("dropdown-content").style.display === "none" ? "block" : "none";
+  }
+

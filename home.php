@@ -35,6 +35,7 @@
                 </div>
 
             </div>
+            
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link" id="tl-sidebar">
@@ -67,8 +68,9 @@
                   </a>
                 </li>
         </aside>
+        
         <div class="main">
-            <nav class="navbar navbar-expand px-4 py-3">
+        <nav class="navbar navbar-expand px-4 py-3">
                 <form action="#" class="d-none d-sm-inline-block">
                     <div class="input-group input-group-navbar">
                         <input type="text" class="form-control border-0 rounded-0" placeholder="Search...">
@@ -78,17 +80,27 @@
                     </div>
                 </form>
             </nav>
+
             <main class="">
-                <div class="container-fluid" >
+                <!-- <div class="container-fluid" > -->
                     <section id="timeline">
-                    <?php 
-                        include ('content-containers/timeline.php');
+                    <?php
+                    if (isset($_GET['back']) || isset($_GET['save']) ) {
+                        include('content-containers/timeline.php');
+                    }
+                    else if(isset($_GET['entry'])){
+                        $isIncluded = true;
+                        include('content-containers/entry_view.php');
+                    }
+                    else{
+                        include('content-containers/timeline.php');
+                    }
                     ?>
                     </section>
 
-                    <section id="text-editor">
-                    <?php 
-                        // include ('content-containers/text-editor.php');
+                    <section id="text-view">
+                    <?php
+                  
                     ?>
                     </section>
 
@@ -96,11 +108,17 @@
                     
                     
 
-                </div>
+                <!-- </div> -->
             </main>
-            <a href="text-editor.php">
-            <button type="button"  class="btn btn-dark btn-md rounded-5 new-button"><i class="lni lni-circle-plus"></i> New</button>
-            </a>
+            <?php
+            if (!isset($isIncluded)) {
+                echo '
+                <a href="text-editor.php">
+                    <button type="button" class="btn btn-dark btn-md rounded-5 new-button"><i class="lni lni-circle-plus"></i> New</button>
+                </a>
+                ';
+            }
+            ?>
             
         </div>
 

@@ -1,10 +1,11 @@
 *{
-    background-color: #EEEEEE;
+    /* background-color: #EEEEEE;   */
 }
 body{
     font-family: 'Montserrat';
     font-weight: 500;
     text-align: center;
+
     
 }
 h1,h2,h3,h4,h5,h6{
@@ -21,8 +22,37 @@ p{
     font-weight: bold;
     font-size: 3rem;  
     line-height: 1.2;
-    margin: 5% 3% 5% 0;
+    margin: 5% 3% 5% 0; 
+}
+.big-heading1{
+    color: #EEEEEE;
+    font-family: 'serif';  
+    font-weight: bold;
+    font-size: 3rem;  
+    line-height: 1.2;
+    margin: 5% 3% 5% 0; 
+}
+.overview-heading{
+    color: #EEEEEE;
+    font-family: 'serif';  
+    font-weight: bold;
+    font-size: 2rem;  
+    line-height: 1.2;
+    /* margin: 5% 3% 5% 0; */
 
+}
+.overview-image{
+    height: 40%;
+    position: absolute;
+    left:  40%;
+    bottom: 10%;
+    
+}
+.overview-image1{
+    height: 60%;
+    position: absolute;
+    left:  66%;
+    bottom: 15%;
     
 }
 .section-heading{
@@ -37,8 +67,8 @@ p{
 
 /* Sections */
 .colored-section{
-    background-color: #FF4C68 ;
-    color: #FFF;
+    background-color: #222222 ;
+    color: #222222;
 }
 .white-section{
     background-color: #FFF;
@@ -64,7 +94,21 @@ p{
 }
 
 /* Download Buttons */
-.download-button{
+.getstarted-button{
+    padding: 2% 6%;
+    margin: 5% 1% 5% 0%;;
+    font-size: 1rem;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+.login-button{
+    padding: 2% 6%;
+    margin: 5% 1% 5% 0%;;
+    font-size: 1rem;
+    font-family: 'Montserrat';
+    font-weight: 600;
+}
+.register-button{
     padding: 2% 6%;
     margin: 5% 1% 5% 0%;;
     font-size: 1rem;
@@ -77,7 +121,8 @@ p{
   }
   
 #title .container-fluid{
-    padding: 3% 15% 7%;
+    padding: 3% 15% 10%;
+    /* margin-bottom: 2%; */
 }
 
 /* Title Image */
@@ -112,17 +157,16 @@ p{
 
 /* Testimonials Section */
 #testimonials{
-    background-color: #EF8172;
+    text-align: left;
+
 }
 .testimonial-text{
-    font-size: 3rem;
-    line-height: 1.5;
+    /* padding: 3% 15%; */
+    line-height: 2rem;
+    margin: 5% 0 5% 0 ;
 }
-.testimonial-image{
-    width: 10%;
-    border-radius: 100%;
-    margin: 20px;
-}
+
+
 #press{
     background-color: #EF8172;
     padding-bottom: 3%;
@@ -155,6 +199,16 @@ p{
 @media (max-width: 990px ) {
     #title{
         text-align: center;
+    }
+    .overview-image{
+        display: none;
+    }
+    .overview-image1{
+        display: none;
+    }
+    #testimonials{
+        text-align: center;
+    
     }
 
     .title-image{

@@ -11,7 +11,6 @@ input {
   font-family: "Montserrat", sans-serif;
 }
 
-
 .container {
   position: relative;
   width: 100%;
@@ -55,10 +54,11 @@ form {
 form.sign-up-form {
   opacity: 0;
   z-index: 1;
+
 }
 
 form.sign-in-form {
-  z-index: 2;
+    z-index: 2;
 }
 
 .title {
@@ -363,6 +363,10 @@ img.icons {
     bottom: 32%;
     right: initial;
   }
+
+  .no-transition {
+    transition: none !important;
+}
 
   .container.sign-up-mode .left-panel .image,
   .container.sign-up-mode .left-panel .content {
